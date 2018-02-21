@@ -1,0 +1,32 @@
+
+public class HelloWorldThread extends Thread {
+	
+		public HelloWorldThread (String nome){
+			super (nome);
+		}
+		
+		public void run(){
+			for(int i = 0; i <100000; i++){
+				
+				try{
+					sleep(1000);
+				}catch(InterruptedException e){
+					e.printStackTrace();
+				}
+				System.out.println(getName() + " " + i);
+			}
+		}
+
+	public static void main(String[] args) {
+		HelloWorldThread thread0 = new HelloWorldThread("Jogando");
+		HelloWorldThread thread1 = new HelloWorldThread("Dormindo");
+		thread0.start();
+		thread1.start();
+		thread0.setPriority(1);
+		thread1.setPriority(1);
+		//thread0.sleep();
+		// TODO Auto-generated method stub
+
+	}
+
+}
